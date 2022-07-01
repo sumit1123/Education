@@ -1,0 +1,41 @@
+<resources>
+    <string name="app_name">eLearner Sathi</string>
+    <string name="enter_mobile_number">Enter Mobile Number</string>
+    <string name="login">LOGIN</string>
+    <string name="register">Register</string>
+    <string name="name">Name</string>
+    <string name="phone">Phone</string>
+    <string name="conform_password">Conform password</string>
+    <string name="email">Email</string>
+    <string name="title_activity_dash_board">DashBoardActivity</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="menu_home">Home</string>
+    <string name="menu_gallery">Gallery</string>
+    <string name="menu_slideshow">Slideshow</string>
+    <string name="title_activity_home_screen">HomeScreen</string>
+    <string name="title_activity_home">HomeActivity</string>
+    <string name="privacy_policy_and_t_c"><![CDATA[Privacy Policy and T & C]]></string>
+    <string name="verify">Verify</string>
+    <string name="enter_4_digit_otp">Enter 4 digit OTP</string>
+    <string name="select_course">Select Course</string>
+    <string name="submit">SUBMIT</string>
+    <string name="courses">Courses</string>
+    <string name="password">Password</string>
+    <string name="video">VIDEO</string>
+    <string name="exam">EXAM</string>
+    <string name="notes">NOTES</string>
+    <string name="test">TEST</string>
+    <string name="learn_subject">Learn Subject</string>
+    <string name="learn_chapter">Learn Chapter</string>
+    <string name="mcq">MCQ</string>
+    <string name="solution"><u>Solution</u></string>
+    <string name="apply">APPLY</string>
+    <string name="track">TRACK</string>
+    <string name="update">UPDATE</string>
+</resources>

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        <com.ct7ct7ct7.androidvimeoplayer.view.VimeoPlayerView
+            android:id="@+id/vimeoPlayer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:autoPlay="true"
+            app:loop="true"
+            app:muted="false"
+            android:visibility="gone"
+            app:showFullscreenOption="false"
+            app:showMenuOption="true"
+            app:showOriginalControls="true"
+            app:showTitle="false"
+            app:topicColor="#FFFF00"
+            app:aspectRatio="1.778"
+            app:backgroundColor="#00FFFF"
+            />
+
+        <ImageView
+            android:id="@+id/bt_vimeo_fullsceen"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:src="@drawable/ic_baseline_fullscreen_24"
+            android:layout_gravity="end"
+            />
+
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/video_recyclerview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="20dp"
+            />
+
+          <TextView
+              android:id="@+id/tv_record"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:gravity="center"
+              android:visibility="gone"
+              android:layout_gravity="center"
+              android:text="NO RECORD FOUND"
+              android:textSize="20sp"
+              android:textColor="@color/black"
+              />
+
+        </FrameLayout>
+
+    </LinearLayout>
+
+</layout>

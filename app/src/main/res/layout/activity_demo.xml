@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/subject"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp">
+
+        <TextView
+            android:id="@+id/tv_wish"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="70dp"
+            android:text=""
+            android:textColor="@color/black"
+            android:textSize="15sp" />
+
+    <TextView
+        android:id="@+id/tv_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:layout_marginStart="30dp"
+        android:textStyle="bold"
+        android:layout_below="@+id/tv_wish"
+        android:textColor="@color/white"
+        android:textSize="20sp" />
+
+    <LinearLayout
+        android:id="@+id/ll_one"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@+id/tv_name"
+        android:layout_marginTop="80dp"
+        android:weightSum="2">
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/bt_video"
+            android:layout_width="0dp"
+            android:layout_height="80dp"
+            android:text="@string/video"
+            android:background="@drawable/rectangle"
+            android:textColor="@color/white"
+            android:layout_weight="1"/>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/bt_exam"
+            android:layout_width="0dp"
+            android:layout_height="80dp"
+            android:text="@string/exam"
+            android:layout_marginStart="10dp"
+            android:background="@drawable/rectangle"
+            android:textColor="@color/white"
+            android:layout_weight="1"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_two"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/ll_one"
+        android:weightSum="2">
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/bt_notes"
+            android:layout_width="0dp"
+            android:layout_height="80dp"
+            android:text="@string/notes"
+            android:background="@drawable/rectangle"
+            android:textColor="@color/white"
+            android:layout_weight="1"/>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/bt_mcq"
+            android:layout_width="0dp"
+            android:layout_height="80dp"
+            android:text="@string/mcq"
+            android:layout_marginStart="10dp"
+            android:background="@drawable/rectangle"
+            android:textColor="@color/white"
+            android:layout_weight="1"/>
+
+    </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_course_include"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="This Course Includes:"
+            android:textColor="@color/blue"
+            android:textStyle="bold"
+            android:layout_margin="10dp"
+            android:layout_marginTop="10dp"
+            android:textSize="18sp"
+            android:layout_below="@+id/ll_two"
+            />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/point_recyclerview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_course_include"
+            android:layout_marginTop="10dp" />
+
+    </RelativeLayout>
+
+</layout>

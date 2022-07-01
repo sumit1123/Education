@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/profile"
+            android:icon="@drawable/ic_redeem_black_24dp"
+            android:title="Profile" />
+
+        <item
+            android:id="@+id/mycourse"
+            android:icon="@drawable/ic_shopping_cart_black_24dp"
+            android:title="My Course" />
+        <item
+            android:id="@+id/allcourse"
+            android:icon="@drawable/ic_menu_share"
+            android:title="All Courses" />
+        <item
+            android:id="@+id/invoice"
+            android:icon="@drawable/ic_call_black_24dp"
+            android:title="Invoice"
+            />
+
+        <item
+            android:id="@+id/wallet"
+            android:icon="@drawable/ic_contact_phone_black_24dp"
+            android:title="Wallet" />
+
+
+        <item
+            android:id="@+id/message"
+            android:icon="@drawable/ic_live_help_black_24dp"
+            android:title="Message" />
+
+        <item
+            android:id="@+id/signout"
+            android:icon="@drawable/ic_live_help_black_24dp"
+            android:title="Signout" />
+    </group>
+
+</menu>

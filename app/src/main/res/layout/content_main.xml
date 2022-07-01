@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:overScrollMode="always"
+        android:id="@+id/scrollView">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp">
+
+          <LinearLayout
+              android:id="@+id/ll_one"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:orientation="horizontal"
+              android:layout_marginTop="60dp"
+              android:weightSum="2">
+
+              <androidx.appcompat.widget.AppCompatButton
+                  android:id="@+id/bt_video"
+                  android:layout_width="0dp"
+                  android:layout_height="50dp"
+                  android:text="@string/video"
+                  android:drawableStart="@drawable/ic_baseline_videocam_24"
+                  android:paddingStart="20dip"
+                  android:drawableTint="@color/white"
+                  android:paddingEnd="47dip"
+                  android:background="@drawable/rectangle"
+                  android:textColor="@color/white"
+                  android:layout_weight="1"/>
+
+              <androidx.appcompat.widget.AppCompatButton
+                  android:id="@+id/bt_exam"
+                  android:layout_width="0dp"
+                  android:layout_height="50dp"
+                  android:text="@string/exam"
+                  android:drawableStart="@drawable/ic_baseline_event_note_24"
+                  android:paddingStart="20dip"
+                  android:drawableTint="@color/white"
+                  android:paddingEnd="47dip"
+                  android:layout_marginStart="10dp"
+                  android:background="@drawable/rectangle"
+                  android:textColor="@color/white"
+                  android:layout_weight="1"/>
+
+          </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_two"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="5dp"
+                android:layout_below="@+id/ll_one"
+                android:weightSum="2">
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/bt_notes"
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:text="@string/notes"
+                    android:drawableStart="@drawable/ic_baseline_picture_as_pdf_24"
+                    android:paddingStart="20dip"
+                    android:drawableTint="@color/white"
+                    android:paddingEnd="47dip"
+                    android:background="@drawable/rectangle"
+                    android:textColor="@color/white"
+                    android:layout_weight="1"/>
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/bt_mcq"
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:text="@string/mcq"
+                    android:drawableStart="@drawable/ic_baseline_note_alt_24"
+                    android:paddingStart="20dip"
+                    android:drawableTint="@color/white"
+                    android:paddingEnd="47dip"
+                    android:layout_marginStart="10dp"
+                    android:background="@drawable/rectangle"
+                    android:textColor="@color/white"
+                    android:layout_weight="1"/>
+
+            </LinearLayout>
+
+            <com.smarteist.autoimageslider.SliderView
+                android:id="@+id/imageSlider"
+                android:layout_width="match_parent"
+                android:layout_height="430px"
+                android:layout_below="@+id/ll_two"
+                android:layout_marginTop="10dp"
+                app:sliderAnimationDuration="600"
+                app:sliderAutoCycleDirection="right"
+                app:sliderAutoCycleEnabled="true"
+                app:sliderIndicatorAnimationDuration="600"
+                app:sliderIndicatorGravity="center_horizontal|bottom"
+                app:sliderIndicatorMargin="15dp"
+                app:sliderIndicatorOrientation="horizontal"
+                app:sliderIndicatorPadding="3dp"
+                app:sliderIndicatorRadius="2dp"
+                app:sliderIndicatorSelectedColor="#5A5A5A"
+                app:sliderIndicatorUnselectedColor="#FFF"
+                app:sliderScrollTimeInSec="1"
+                app:sliderStartAutoCycle="true" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/point_recyclerview"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/imageSlider"
+                android:layout_marginTop="10dp" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/bt_buynow"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/point_recyclerview"
+                android:layout_marginTop="20dp"
+                android:background="@color/blue"
+                android:text="SUBSCRIBE"
+                android:textColor="@color/white" />
+
+       <LinearLayout
+           android:id="@+id/ll_share"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:layout_marginBottom="10dp"
+           android:layout_below="@+id/course_recyclerview"
+           android:orientation="vertical">
+
+           <androidx.appcompat.widget.AppCompatButton
+               android:id="@+id/bt_share"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:background="@color/blue"
+               android:textColor="@color/white"
+               android:textAllCaps="false"
+               android:text="Share Our App To Friend"
+               />
+
+           <ImageView
+               android:id="@+id/img"
+               android:layout_width="match_parent"
+               android:layout_height="150dp"
+               android:background="@drawable/call"
+               />
+
+           <androidx.appcompat.widget.AppCompatButton
+               android:id="@+id/bt_call"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:background="@drawable/item_background"
+               android:textColor="@color/blue"
+               android:layout_marginTop="10dp"
+               android:textAllCaps="false"
+               android:text="Talk To An Expert"
+               />
+
+       </LinearLayout>
+
+            <TextView
+                android:id="@+id/tv_popular"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="Popular Courses"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:layout_below="@+id/bt_buynow"
+                />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/course_recyclerview"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/tv_popular"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="20dp" />
+
+        </RelativeLayout>
+    </androidx.core.widget.NestedScrollView>
+</layout>

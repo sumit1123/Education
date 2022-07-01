@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_marginHorizontal="8dp"
+    android:layout_marginVertical="12dp"
+    app:cardCornerRadius="10dp"
+    app:cardElevation="8dp">
+
+        <LinearLayout
+            android:id="@+id/ll_card_bacground"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:weightSum="2">
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/bt_demo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/blue"
+                android:textColor="@color/white"
+                android:text="Demo"
+               />
+
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/bt_buynow"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Buy Now"
+                android:layout_marginTop="10dp"
+                android:background="@color/blue"
+                android:textColor="@android:color/white" />
+        </LinearLayout>
+
+
+</androidx.cardview.widget.CardView>

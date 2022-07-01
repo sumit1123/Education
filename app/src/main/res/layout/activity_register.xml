@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:background="@drawable/registation"
+        android:orientation="vertical">
+
+
+        <EditText
+            android:id="@+id/Name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text"
+            android:hint="@string/name"
+            android:textColorHint="@color/black"
+            android:textColor="@color/black"
+            android:layout_marginTop="320dp"
+            android:background="@drawable/item_background" />
+
+        <EditText
+            android:id="@+id/phone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="phone"
+            android:hint="@string/phone"
+            android:textColorHint="@color/black"
+            android:textColor="@color/black"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/item_background" />
+
+        <EditText
+            android:id="@+id/Email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textEmailAddress"
+            android:hint="@string/email"
+            android:textColorHint="@color/black"
+            android:textColor="@color/black"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/item_background" />
+
+        <EditText
+            android:id="@+id/Password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword"
+            android:hint="@string/password"
+            android:textColorHint="@color/black"
+            android:textColor="@color/black"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/item_background" />
+
+        <EditText
+            android:id="@+id/confirm_password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword"
+            android:hint="@string/conform_password"
+            android:textColorHint="@color/black"
+            android:textColor="@color/black"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/item_background" />
+
+        <EditText
+            android:id="@+id/course"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword"
+            android:hint="@string/courses"
+            android:textColorHint="@color/black"
+            android:textColor="@color/black"
+            android:visibility="gone"
+            android:focusableInTouchMode="true"
+            android:focusable="false"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/item_background" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/bt_register"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/button"
+            android:layout_marginTop="50dp"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:text="@string/register" />
+
+
+    </LinearLayout>
+    </ScrollView>
+</layout>
