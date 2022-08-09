@@ -34,6 +34,18 @@ public class ProfileActivity extends BaseActivity implements ProfileInterface {
         activityPaymentBinding.btUpdate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                activityPaymentBinding.btSave.setVisibility(View.VISIBLE);
+                activityPaymentBinding.course.setEnabled(true);
+                activityPaymentBinding.password.setEnabled(true);
+                activityPaymentBinding.Name.setEnabled(true);
+                activityPaymentBinding.Email.setEnabled(true);
+                activityPaymentBinding.phone.setEnabled(true);
+            }
+        });
+
+        activityPaymentBinding.btSave.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
                 showLoading(true);
                 profileViewModel.updateProfileApi(ProfileActivity.this, activityPaymentBinding.phone.getText().toString(), loginResponses.get(0).member_id,
                         activityPaymentBinding.Name.getText().toString(), activityPaymentBinding.Email.getText().toString(), activityPaymentBinding.password.getText().toString(),
@@ -81,6 +93,7 @@ public class ProfileActivity extends BaseActivity implements ProfileInterface {
     @Override
     protected void onResume() {
         super.onResume();
+        activityPaymentBinding.btSave.setVisibility(View.GONE);
         profileViewModel.profileApi(ProfileActivity.this, EducationApplication.sharedPreferences.getString("user_id", ""));
     }
 }

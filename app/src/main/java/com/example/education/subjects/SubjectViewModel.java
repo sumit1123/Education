@@ -27,7 +27,6 @@ public class SubjectViewModel extends ViewModel {
 
     private SubjectInterface subjectInterface;
 
-
     SubjectViewModel(SubjectInterface loginInterface) {
         this.subjectInterface = loginInterface;
     }

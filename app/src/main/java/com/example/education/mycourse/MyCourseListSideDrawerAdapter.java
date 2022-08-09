@@ -15,6 +15,7 @@ import com.example.education.EducationApplication;
 import com.example.education.R;
 import com.example.education.buynow.PaymentActivity;
 import com.example.education.certificate.FinalExamFormActivity;
+import com.example.education.examnames.ExamNameListActivity;
 import com.example.education.response.CourseResponse;
 import com.example.education.utils.Constant;
 import com.google.android.material.card.MaterialCardView;
@@ -29,7 +30,7 @@ public class MyCourseListSideDrawerAdapter extends RecyclerView.Adapter<MyCourse
     Activity context;
     List<CourseResponse> courseResponses = new ArrayList<>();
     boolean isMyCourse;
-    String fromcertificate;
+    String fromcertificate ,track;
 
     public MyCourseListSideDrawerAdapter(Activity context) {
         this.context = context;
@@ -45,8 +46,8 @@ public class MyCourseListSideDrawerAdapter extends RecyclerView.Adapter<MyCourse
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        Picasso.get().load(Constant.IMAGE_URL + courseResponses.get(position).course_image).placeholder(R.drawable.video_placeholder).into(holder.course_img);
-        holder.course_name.setText(courseResponses.get(position).course_name);
+        Picasso.get().load(Constant.IMAGE_URL + courseResponses.get(holder.getAdapterPosition()).course_image).placeholder(R.drawable.video_placeholder).into(holder.course_img);
+        holder.course_name.setText(courseResponses.get(holder.getAdapterPosition()).course_name);
         if (isMyCourse) {
             holder.bt_demo.setVisibility(View.GONE);
             holder.bt_buynow.setVisibility(View.GONE);
@@ -60,10 +61,16 @@ public class MyCourseListSideDrawerAdapter extends RecyclerView.Adapter<MyCourse
                 if (isMyCourse) {
                     if (fromcertificate != null && fromcertificate.equalsIgnoreCase("true")) {
                         Intent demo = new Intent(context, FinalExamFormActivity.class);
-                        demo.putExtra("courseid" , courseResponses.get(position).course_id);
+                        demo.putExtra("courseid" , courseResponses.get(holder.getAdapterPosition()).course_id);
                         context.startActivity(demo);
-                    } else {
-                        EducationApplication.editor.putString("courseid", courseResponses.get(position).course_id).apply();
+                    } else if(track != null && track.equalsIgnoreCase("true")){
+                        EducationApplication.editor.putString("courseid", courseResponses.get(holder.getAdapterPosition()).course_id).apply();
+                        Intent demo = new Intent(context, ExamNameListActivity.class);
+                        context.startActivity(demo);
+                    }
+                    else
+                    {
+                        EducationApplication.editor.putString("courseid", courseResponses.get(holder.getAdapterPosition()).course_id).apply();
                         Intent demo = new Intent(context, DemoActivity.class);
                         demo.putExtra("from", "MyCourse");
                         context.startActivity(demo);
@@ -76,9 +83,9 @@ public class MyCourseListSideDrawerAdapter extends RecyclerView.Adapter<MyCourse
         holder.bt_demo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                EducationApplication.editor.putString("courseid", courseResponses.get(position).course_id).apply();
+                EducationApplication.editor.putString("courseid", courseResponses.get(holder.getAdapterPosition()).course_id).apply();
                 Intent demo = new Intent(context, DemoActivity.class);
-                demo.putExtra("position", position);
+                demo.putExtra("position", holder.getAdapterPosition());
                 context.startActivity(demo);
             }
         });
@@ -86,9 +93,10 @@ public class MyCourseListSideDrawerAdapter extends RecyclerView.Adapter<MyCourse
         holder.bt_buynow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                EducationApplication.editor.putString("courseid", courseResponses.get(position).course_id).apply();
+                EducationApplication.editor.putString("courseid", courseResponses.get(holder.getAdapterPosition()).course_id).apply();
                 Intent demo = new Intent(context, PaymentActivity.class);
-                demo.putExtra("courseDetail", courseResponses.get(position));
+                demo.putExtra("courseDetail", courseResponses.get(holder.getAdapterPosition()));
+                demo.putExtra("position" ,    holder.getAdapterPosition());
                 context.startActivity(demo);
             }
         });
@@ -99,10 +107,11 @@ public class MyCourseListSideDrawerAdapter extends RecyclerView.Adapter<MyCourse
         return courseResponses.size();
     }
 
-    public void setData(List<CourseResponse> body, boolean isMyCourse, String fromcertificate) {
+    public void setData(List<CourseResponse> body, boolean isMyCourse, String fromcertificate, String track) {
         this.courseResponses = body;
         this.fromcertificate = fromcertificate;
         this.isMyCourse = isMyCourse;
+        this.track = track;
         notifyDataSetChanged();
     }
 

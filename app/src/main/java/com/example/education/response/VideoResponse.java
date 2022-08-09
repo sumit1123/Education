@@ -9,6 +9,8 @@ public class VideoResponse {
     public String supportFile;
     public String preview_image;
     public String video_format;
+    public String hash_key;
+    public String video_url;
     public String upload_type;
     public String use_for_demo;
     public String document_type;

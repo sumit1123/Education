@@ -85,8 +85,9 @@ public class MyCourseListAdapter extends RecyclerView.Adapter<MyCourseListAdapte
             @Override
             public void onClick(View view) {
                 EducationApplication.editor.putString("courseid", courseResponses.get(position).course_id).apply();
-                Intent demo = new Intent(context, PaymentActivity.class);
+                Intent demo = new Intent(context,    PaymentActivity.class);
                 demo.putExtra("courseDetail" , courseResponses.get(position));
+                demo.putExtra("position" ,     position);
                 context.startActivity(demo);
             }
         });

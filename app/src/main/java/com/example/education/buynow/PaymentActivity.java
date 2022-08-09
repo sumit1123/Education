@@ -3,6 +3,7 @@ package com.example.education.buynow;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.AsyncTask;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -12,7 +13,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -44,7 +44,12 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.time.Duration;
+import java.time.LocalDateTime;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 import java.util.TimeZone;
 
@@ -55,7 +60,7 @@ public class PaymentActivity extends BaseActivity implements PaymentInterface, P
     ActivityPaymentBinding activityPaymentBinding;
     PaymentViewModel paymentViewModel;
     CourseResponse courseResponse;
-    int total_price;
+    int total_price ,position;
     List<CoupanResponse> coupnaresponse;
     PointListAdapter pointListAdapter;
     String coupan_id = "";
@@ -69,10 +74,11 @@ public class PaymentActivity extends BaseActivity implements PaymentInterface, P
         paymentViewModel = new ViewModelProvider(this, new PaymentViewModelFactory(this)).get(PaymentViewModel.class);
         if (getIntent() != null) {
             courseResponse = getIntent().getParcelableExtra("courseDetail");
+            position = getIntent().getIntExtra("position" ,0);
         }
         Checkout.preload(getApplicationContext());
         setRecyclerView();
-        activityPaymentBinding.vimeoPlayer.initialize(true, Integer.parseInt(courseResponse.video_id));
+        activityPaymentBinding.vimeoPlayer.initialize(true, Integer.parseInt(courseResponse.video_id), courseResponse.hash_key ,courseResponse.video_url);
         activityPaymentBinding.btBuynow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -144,7 +150,6 @@ public class PaymentActivity extends BaseActivity implements PaymentInterface, P
         pointListAdapter = new PointListAdapter(this);
         recyclerView.setHasFixedSize(true);
         GridLayoutManager gridLayoutManager = new GridLayoutManager(this, 2);
-        //LinearLayoutManager mLayoutManager = new LinearLayoutManager(this , LinearLayoutManager.HORIZONTAL ,false);
         recyclerView.setLayoutManager(gridLayoutManager);
         recyclerView.setAdapter(pointListAdapter);
     }
@@ -189,8 +194,8 @@ public class PaymentActivity extends BaseActivity implements PaymentInterface, P
     }
 
     @Override
-    public void setData(List<ChapterResponse> body) {
-
+    public void setData(List<CourseResponse> body) {
+        pointListAdapter.setData(body.get(position));
     }
 
     @Override
@@ -204,7 +209,7 @@ public class PaymentActivity extends BaseActivity implements PaymentInterface, P
                 TextView tv_coupan = childview.findViewById(R.id.tv_coupan);
                 Button bt_apply = childview.findViewById(R.id.bt_apply);
                 et_coupan.setText(response.get(i).couponCode);
-                tv_coupan.setText("price: " +response.get(i).couponPrice);
+                tv_coupan.setText("Discount: " +response.get(i).couponPrice);
                 bt_apply.setTag(i);
                 bt_apply.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -247,6 +252,7 @@ public class PaymentActivity extends BaseActivity implements PaymentInterface, P
     @Override
     protected void onResume() {
         super.onResume();
+        paymentViewModel.courseApi(this);
         activityPaymentBinding.tvTotalAmount.setText("" + courseResponse.course_price + " Rs");
         activityPaymentBinding.tvTitle.setText(courseResponse.course_name);
         activityPaymentBinding.tvDescription.setText(courseResponse.course_details);
@@ -266,8 +272,15 @@ public class PaymentActivity extends BaseActivity implements PaymentInterface, P
     @Override
     public void onPaymentSuccess(String razorpayPaymentID) {
         try {
+            Date dt = new Date();
+            Calendar c = Calendar.getInstance();
+            c.setTime(dt);
+            c.add(Calendar.DATE, Integer.parseInt(courseResponse.course_duration));
+            dt = c.getTime();
+            DateFormat dateFormat = new SimpleDateFormat("yyyy-mm-dd hh:mm:ss");
+            String end_date = dateFormat.format(dt);
             paymentViewModel.purchaseApi(this, razorpayPaymentID, coupan_id, activityPaymentBinding.tvTotalPrice.getText().toString(), courseResponse.course_id, courseResponse.course_price, courseResponse.gst, courseResponse.course_duration,
-                    courseResponse.course_name);
+                    courseResponse.course_name ,end_date);
             Toast.makeText(this, "Payment Successful: " + razorpayPaymentID, Toast.LENGTH_SHORT).show();
         } catch (Exception e) {
             Log.e("onPaymentSuccess", "Exception in onPaymentSuccess", e);

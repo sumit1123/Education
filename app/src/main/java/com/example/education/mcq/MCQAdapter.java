@@ -2,6 +2,7 @@ package com.example.education.mcq;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.ColorStateList;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -118,7 +119,7 @@ public class MCQAdapter extends RecyclerView.Adapter<MCQAdapter.ViewHolder> {
             public void onClick(View view) {
                 if (examtype.equalsIgnoreCase("2")) {
                     mcqResponses.get(holder.getAdapterPosition()).selected_answer = 1;
-                    holder.ll_option_a.setCardBackgroundColor(mContext.getResources().getColor(R.color.gray));
+                    holder.ll_option_a.setBackgroundTintList(ColorStateList.valueOf(mContext.getResources().getColor(R.color.gray)));
                     holder.ll_option_a.setStrokeColor(mContext.getResources().getColor(R.color.black));
                     holder.ll_option_b.setStrokeColor(mContext.getResources().getColor(R.color.white));
                     holder.ll_option_c.setStrokeColor(mContext.getResources().getColor(R.color.white));
@@ -162,7 +163,7 @@ public class MCQAdapter extends RecyclerView.Adapter<MCQAdapter.ViewHolder> {
                 if (examtype.equalsIgnoreCase("2")) {
                     mcqResponses.get(holder.getAdapterPosition()).selected_answer = 2;
                     holder.ll_option_b.setStrokeColor(mContext.getResources().getColor(R.color.black));
-                    holder.ll_option_b.setCardBackgroundColor(mContext.getResources().getColor(R.color.gray));
+                    holder.ll_option_b.setBackgroundTintList(ColorStateList.valueOf(mContext.getResources().getColor(R.color.gray)));
                     holder.ll_option_a.setStrokeColor(mContext.getResources().getColor(R.color.white));
                     holder.ll_option_c.setStrokeColor(mContext.getResources().getColor(R.color.white));
                     holder.ll_option_d.setStrokeColor(mContext.getResources().getColor(R.color.white));
@@ -205,7 +206,7 @@ public class MCQAdapter extends RecyclerView.Adapter<MCQAdapter.ViewHolder> {
                 if (examtype.equalsIgnoreCase("2")) {
                     mcqResponses.get(holder.getAdapterPosition()).selected_answer = 3;
                     holder.ll_option_c.setStrokeColor(mContext.getResources().getColor(R.color.black));
-                    holder.ll_option_c.setCardBackgroundColor(mContext.getResources().getColor(R.color.gray));
+                    holder.ll_option_c.setBackgroundTintList(ColorStateList.valueOf(mContext.getResources().getColor(R.color.gray)));
                     holder.ll_option_a.setStrokeColor(mContext.getResources().getColor(R.color.white));
                     holder.ll_option_b.setStrokeColor(mContext.getResources().getColor(R.color.white));
                     holder.ll_option_d.setStrokeColor(mContext.getResources().getColor(R.color.white));
@@ -247,7 +248,7 @@ public class MCQAdapter extends RecyclerView.Adapter<MCQAdapter.ViewHolder> {
                 if (examtype.equalsIgnoreCase("2")) {
                     mcqResponses.get(holder.getAdapterPosition()).selected_answer = 4;
                     holder.ll_option_d.setStrokeColor(mContext.getResources().getColor(R.color.black));
-                    holder.ll_option_d.setCardBackgroundColor(mContext.getResources().getColor(R.color.gray));
+                    holder.ll_option_d.setBackgroundTintList(ColorStateList.valueOf(mContext.getResources().getColor(R.color.gray)));
                     holder.ll_option_a.setStrokeColor(mContext.getResources().getColor(R.color.white));
                     holder.ll_option_b.setStrokeColor(mContext.getResources().getColor(R.color.white));
                     holder.ll_option_c.setStrokeColor(mContext.getResources().getColor(R.color.white));
@@ -293,21 +294,25 @@ public class MCQAdapter extends RecyclerView.Adapter<MCQAdapter.ViewHolder> {
     private void setColorsExam(ViewHolder holder, int position) {
         if (examArrayList.get(position).getSelect_answer().equalsIgnoreCase("1")) {
             holder.ll_option_a.setStrokeColor(mContext.getResources().getColor(R.color.gray));
+            holder.ll_option_a.setBackgroundColor(mContext.getResources().getColor(R.color.gray));
             holder.ll_option_b.setStrokeColor(mContext.getResources().getColor(R.color.white));
             holder.ll_option_c.setStrokeColor(mContext.getResources().getColor(R.color.white));
             holder.ll_option_d.setStrokeColor(mContext.getResources().getColor(R.color.white));
         } else if (examArrayList.get(position).getSelect_answer().equalsIgnoreCase("2")) {
             holder.ll_option_b.setStrokeColor(mContext.getResources().getColor(R.color.gray));
+            holder.ll_option_b.setBackgroundColor(mContext.getResources().getColor(R.color.gray));
             holder.ll_option_a.setStrokeColor(mContext.getResources().getColor(R.color.white));
             holder.ll_option_c.setStrokeColor(mContext.getResources().getColor(R.color.white));
             holder.ll_option_d.setStrokeColor(mContext.getResources().getColor(R.color.white));
         } else if (examArrayList.get(position).getSelect_answer().equalsIgnoreCase("3")) {
             holder.ll_option_c.setStrokeColor(mContext.getResources().getColor(R.color.gray));
+            holder.ll_option_c.setBackgroundColor(mContext.getResources().getColor(R.color.gray));
             holder.ll_option_a.setStrokeColor(mContext.getResources().getColor(R.color.white));
             holder.ll_option_b.setStrokeColor(mContext.getResources().getColor(R.color.white));
             holder.ll_option_d.setStrokeColor(mContext.getResources().getColor(R.color.white));
         } else if (examArrayList.get(position).getSelect_answer().equalsIgnoreCase("4")) {
             holder.ll_option_d.setStrokeColor(mContext.getResources().getColor(R.color.gray));
+            holder.ll_option_d.setBackgroundColor(mContext.getResources().getColor(R.color.gray));
             holder.ll_option_a.setStrokeColor(mContext.getResources().getColor(R.color.white));
             holder.ll_option_c.setStrokeColor(mContext.getResources().getColor(R.color.white));
             holder.ll_option_b.setStrokeColor(mContext.getResources().getColor(R.color.white));
@@ -316,6 +321,11 @@ public class MCQAdapter extends RecyclerView.Adapter<MCQAdapter.ViewHolder> {
             holder.ll_option_a.setStrokeColor(mContext.getResources().getColor(R.color.white));
             holder.ll_option_c.setStrokeColor(mContext.getResources().getColor(R.color.white));
             holder.ll_option_b.setStrokeColor(mContext.getResources().getColor(R.color.white));
+
+            holder.ll_option_a.setBackgroundTintList(ColorStateList.valueOf(mContext.getResources().getColor(R.color.white)));
+            holder.ll_option_b.setBackgroundTintList(ColorStateList.valueOf(mContext.getResources().getColor(R.color.white)));
+            holder.ll_option_c.setBackgroundTintList(ColorStateList.valueOf(mContext.getResources().getColor(R.color.white)));
+            holder.ll_option_d.setBackgroundTintList(ColorStateList.valueOf(mContext.getResources().getColor(R.color.white)));
         }
     }
 
@@ -378,6 +388,11 @@ public class MCQAdapter extends RecyclerView.Adapter<MCQAdapter.ViewHolder> {
             holder.ll_option_b.setStrokeColor(mContext.getResources().getColor(R.color.white));
             holder.ll_option_c.setStrokeColor(mContext.getResources().getColor(R.color.white));
             holder.ll_option_d.setStrokeColor(mContext.getResources().getColor(R.color.white));
+
+            holder.ll_option_a.setBackgroundTintList(ColorStateList.valueOf(mContext.getResources().getColor(R.color.white)));
+            holder.ll_option_b.setBackgroundTintList(ColorStateList.valueOf(mContext.getResources().getColor(R.color.white)));
+            holder.ll_option_c.setBackgroundTintList(ColorStateList.valueOf(mContext.getResources().getColor(R.color.white)));
+            holder.ll_option_d.setBackgroundTintList(ColorStateList.valueOf(mContext.getResources().getColor(R.color.white)));
         }
     }
 
@@ -387,50 +402,49 @@ public class MCQAdapter extends RecyclerView.Adapter<MCQAdapter.ViewHolder> {
             if (mcqResponses.get(position).correct_option.equalsIgnoreCase(String.valueOf(selected_answer))) {
                 total_correct_answer = total_correct_answer + 1;
                 EducationApplication.editor.putInt("total_mcq_correct_answer" , total_correct_answer).apply();
-
                 if (selected_answer == 1) {
                     holder.ll_option_a.setStrokeColor(mContext.getResources().getColor(R.color.green));
-                    holder.ll_option_a.setCardBackgroundColor(mContext.getResources().getColor(R.color.light_green));
+                    holder.ll_option_a.setBackgroundTintList(ColorStateList.valueOf(mContext.getResources().getColor(R.color.light_green)));
                 } else if (selected_answer == 2) {
                     holder.ll_option_b.setStrokeColor(mContext.getResources().getColor(R.color.green));
-                    holder.ll_option_b.setCardBackgroundColor(mContext.getResources().getColor(R.color.light_green));
+                    holder.ll_option_b.setBackgroundTintList(ColorStateList.valueOf(mContext.getResources().getColor(R.color.light_green)));
                 }
                 if (selected_answer == 3) {
                     holder.ll_option_c.setStrokeColor(mContext.getResources().getColor(R.color.green));
-                    holder.ll_option_c.setCardBackgroundColor(mContext.getResources().getColor(R.color.light_green));
+                    holder.ll_option_c.setBackgroundTintList(ColorStateList.valueOf(mContext.getResources().getColor(R.color.light_green)));
                 } else if (selected_answer == 4) {
                     holder.ll_option_d.setStrokeColor(mContext.getResources().getColor(R.color.green));
-                    holder.ll_option_d.setCardBackgroundColor(mContext.getResources().getColor(R.color.light_green));
+                    holder.ll_option_d.setBackgroundTintList(ColorStateList.valueOf(mContext.getResources().getColor(R.color.light_green)));
                 }
             } else {
                 if (selected_answer == 1) {
                     holder.ll_option_a.setStrokeColor(mContext.getResources().getColor(R.color.red));
-                    holder.ll_option_a.setCardBackgroundColor(mContext.getResources().getColor(R.color.colorAccent));
+                    holder.ll_option_a.setBackgroundTintList(ColorStateList.valueOf(mContext.getResources().getColor(R.color.colorAccent)));
                 } else if (selected_answer == 2) {
                     holder.ll_option_b.setStrokeColor(mContext.getResources().getColor(R.color.red));
-                    holder.ll_option_b.setCardBackgroundColor(mContext.getResources().getColor(R.color.colorAccent));
+                    holder.ll_option_b.setBackgroundTintList(ColorStateList.valueOf(mContext.getResources().getColor(R.color.colorAccent)));
                 }
                 if (selected_answer == 3) {
                     holder.ll_option_c.setStrokeColor(mContext.getResources().getColor(R.color.red));
-                    holder.ll_option_c.setCardBackgroundColor(mContext.getResources().getColor(R.color.colorAccent));
+                    holder.ll_option_c.setBackgroundTintList(ColorStateList.valueOf(mContext.getResources().getColor(R.color.colorAccent)));
                 } else if (selected_answer == 4) {
                     holder.ll_option_d.setStrokeColor(mContext.getResources().getColor(R.color.red));
-                    holder.ll_option_d.setCardBackgroundColor(mContext.getResources().getColor(R.color.colorAccent));
+                    holder.ll_option_d.setBackgroundTintList(ColorStateList.valueOf(mContext.getResources().getColor(R.color.colorAccent)));
                 }
 
                 if (mcqResponses.get(position).correct_option.equalsIgnoreCase(String.valueOf(1))) {
                     holder.ll_option_a.setStrokeColor(mContext.getResources().getColor(R.color.green));
-                    holder.ll_option_a.setCardBackgroundColor(mContext.getResources().getColor(R.color.light_green));
+                    holder.ll_option_a.setBackgroundTintList(ColorStateList.valueOf(mContext.getResources().getColor(R.color.light_green)));
                 } else if (mcqResponses.get(position).correct_option.equalsIgnoreCase(String.valueOf(2))) {
                     holder.ll_option_b.setStrokeColor(mContext.getResources().getColor(R.color.green));
-                    holder.ll_option_b.setCardBackgroundColor(mContext.getResources().getColor(R.color.light_green));
+                    holder.ll_option_b.setBackgroundTintList(ColorStateList.valueOf(mContext.getResources().getColor(R.color.light_green)));
                 }
                 if (mcqResponses.get(position).correct_option.equalsIgnoreCase(String.valueOf(3))) {
                     holder.ll_option_c.setStrokeColor(mContext.getResources().getColor(R.color.green));
-                    holder.ll_option_c.setCardBackgroundColor(mContext.getResources().getColor(R.color.light_green));
+                    holder.ll_option_c.setBackgroundTintList(ColorStateList.valueOf(mContext.getResources().getColor(R.color.light_green)));
                 } else if (mcqResponses.get(position).correct_option.equalsIgnoreCase(String.valueOf(4))) {
                     holder.ll_option_d.setStrokeColor(mContext.getResources().getColor(R.color.green));
-                    holder.ll_option_d.setCardBackgroundColor(mContext.getResources().getColor(R.color.light_green));
+                    holder.ll_option_d.setBackgroundTintList(ColorStateList.valueOf(mContext.getResources().getColor(R.color.light_green)));
                 }
             }
         }

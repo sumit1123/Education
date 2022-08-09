@@ -38,4 +38,6 @@
     <string name="apply">APPLY</string>
     <string name="track">TRACK</string>
     <string name="update">UPDATE</string>
+    <string name="save">Save</string>
+    <string name="support">Support</string>
 </resources>

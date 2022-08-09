@@ -64,6 +64,8 @@ dependencies {
     implementation 'com.ct7ct7ct7.androidvimeoplayer:library:1.2.2'
     testImplementation 'junit:junit:'
     implementation 'com.danjdt:pdfviewer:0.1.0'
+    //implementation 'androidx.browser:browser:1.4.0'
+    implementation 'com.github.GoogleChrome:custom-tabs-client:7ab7178ae0c4858d15b1918bded4dd5cac758870'
     implementation 'de.hdodenhof:circleimageview:3.1.0'
     androidTestImplementation "androidx.compose.ui:ui-test-junit4:1.1.1"
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'

@@ -26,6 +26,7 @@ import com.example.education.EducationApplication;
 import com.example.education.R;
 import com.example.education.buynow.PaymentActivity;
 import com.example.education.certificate.CertificateActivity;
+import com.example.education.chat.ChatAcitivity;
 import com.example.education.databinding.ActivityDashBoardBinding;
 import com.example.education.inbox.InvoiceActivity;
 import com.example.education.login.LoginActivity;
@@ -38,6 +39,7 @@ import com.example.education.repo.request.SubjectRequest;
 import com.example.education.response.CourseResponse;
 import com.example.education.response.SubjectResponse;
 import com.example.education.subjects.SubjectActivity;
+import com.example.education.support.SupportActivity;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
 import com.smarteist.autoimageslider.IndicatorView.animation.type.IndicatorAnimationType;
@@ -96,6 +98,14 @@ public class DashBoardActivity extends AppCompatActivity implements NavigationVi
             e.printStackTrace();
         }
 
+        activityDashBoardBinding.appBarMain.btCall.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent support = new Intent(DashBoardActivity.this , SupportActivity.class);
+                startActivity(support);
+            }
+        });
+
     }
 
     private void bottomNavigation() {
@@ -103,7 +113,7 @@ public class DashBoardActivity extends AppCompatActivity implements NavigationVi
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch (item.getItemId()) {
-                    case R.id.navigation_video:
+                    case R.id.navigation_home:
                         EducationApplication.editor.putString("examtype", "2").apply();
                         EducationApplication.editor.putString("type", "video").apply();
                         Intent i = new Intent(DashBoardActivity.this , SubjectActivity.class);
@@ -118,19 +128,25 @@ public class DashBoardActivity extends AppCompatActivity implements NavigationVi
                         EducationApplication.editor.putString("type", "course").apply();
                         Intent course = new Intent(DashBoardActivity.this , MyCourseActivity.class);
                         course.putExtra("ForMyCourse", "false");
+                        course.putExtra("track", "false");
                         startActivity(course);
                         return true;
-                    case R.id.navigation_notes:
-                        EducationApplication.editor.putString("type", "notes").apply();
-                        Intent notes = new Intent(DashBoardActivity.this , SubjectActivity.class);
-                        startActivity(notes);
-                        return true;
+//                    case R.id.navigation_notes:
+//                        EducationApplication.editor.putString("type", "notes").apply();
+//                        Intent notes = new Intent(DashBoardActivity.this , SubjectActivity.class);
+//                        startActivity(notes);
+//                        return true;
 
-                    case R.id.navigation_mcq:
+                    case R.id.navigation_chat:
                         EducationApplication.editor.putString("examtype", "1").apply();
                         EducationApplication.editor.putString("type", "mcq").apply();
-                        Intent mcq = new Intent(DashBoardActivity.this , SubjectActivity.class);
+                        Intent mcq = new Intent(DashBoardActivity.this , ChatAcitivity.class);
                         startActivity(mcq);
+                        return true;
+
+                    case R.id.navigation_support:
+                        Intent support = new Intent(DashBoardActivity.this , SupportActivity.class);
+                        startActivity(support);
                         return true;
                 }
                 return false;
@@ -152,16 +168,24 @@ public class DashBoardActivity extends AppCompatActivity implements NavigationVi
         activityDashBoardBinding.appBarMain.btBuynow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                for (int i = 0; i <courseResponse.size() ; i++) {
-                    if(EducationApplication.sharedPreferences.getString("courseid", "").equalsIgnoreCase(courseResponse.get(i).course_id))
-                    {
-                        course_position = i;
-                        break;
+                try {
+                    for (int i = 0; i <courseResponse.size() ; i++) {
+                        if(EducationApplication.sharedPreferences.getString("courseid", "").equalsIgnoreCase(courseResponse.get(i).course_id))
+                        {
+                            course_position = i;
+                            break;
+                        }
                     }
+                    Intent demo = new Intent(DashBoardActivity.this, PaymentActivity.class);
+                    demo.putExtra("courseDetail" , courseResponse.get(course_position));
+                    demo.putExtra("position" ,    course_position);
+                    startActivity(demo);
                 }
-                Intent demo = new Intent(DashBoardActivity.this, PaymentActivity.class);
-                demo.putExtra("courseDetail" , courseResponse.get(course_position));
-                startActivity(demo);
+                catch (Exception e)
+                {
+                    e.printStackTrace();
+                }
+
             }
         });
 
@@ -205,7 +229,6 @@ public class DashBoardActivity extends AppCompatActivity implements NavigationVi
     }
 
     private void setNavigation() {
-
         toggle = new ActionBarDrawerToggle(
                 this,  activityDashBoardBinding.drawerLayout, activityDashBoardBinding.toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         activityDashBoardBinding.drawerLayout.addDrawerListener(toggle);
@@ -224,6 +247,7 @@ public class DashBoardActivity extends AppCompatActivity implements NavigationVi
             EducationApplication.editor.putString("ForMyCourse", "true").apply();
             Intent course = new Intent(DashBoardActivity.this , MyCourseActivity.class);
             course.putExtra("ForMyCourse", "true");
+            course.putExtra("track", "false");
             startActivity(course);
             return true;
         }
@@ -239,6 +263,7 @@ public class DashBoardActivity extends AppCompatActivity implements NavigationVi
             EducationApplication.editor.putString("type", "course").apply();
             Intent course = new Intent(DashBoardActivity.this , MyCourseActivity.class);
             course.putExtra("ForMyCourse", "false");
+            course.putExtra("track", "false");
             startActivity(course);
             return true;
         }

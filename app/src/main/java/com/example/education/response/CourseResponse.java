@@ -10,6 +10,8 @@ public class CourseResponse implements Parcelable {
     public String course_price;
     public String course_details;
     public String video_id;
+    public String hash_key;
+    public String video_url;
     public String course_duration;
     public String date_time;
     public Object course_color;
@@ -31,6 +33,17 @@ public class CourseResponse implements Parcelable {
     public String point_eight;
     public String point_nine;
     public String point_ten;
+
+    public String pointone_image;
+    public String pointtwo_image;
+    public String pointthree_image;
+    public String pointfour_image;
+    public String pointfive_image;
+    public String pointsix_image;
+    public String pointseven_image;
+    public String pointeight_image;
+    public String pointnine_image;
+    public String pointten_image;
 
     protected CourseResponse(Parcel in) {
         course_id = in.readString();
@@ -58,6 +71,8 @@ public class CourseResponse implements Parcelable {
         point_eight = in.readString();
         point_nine = in.readString();
         point_ten = in.readString();
+        hash_key =in.readString();
+        video_url = in.readString();
 
     }
 
@@ -105,5 +120,7 @@ public class CourseResponse implements Parcelable {
         parcel.writeString(point_eight);
         parcel.writeString(point_nine);
         parcel.writeString(point_ten);
+        parcel.writeString(hash_key);
+        parcel.writeString(video_url);
     }
 }

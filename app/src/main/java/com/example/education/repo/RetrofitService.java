@@ -114,6 +114,14 @@ public interface RetrofitService {
     @POST("buyexamstart.php")
     Call<List<BuyExamResponse>> doBuyExamStartApi(@Body PaymentRequest subjectRequest);
 
+    @Headers({"Accept: application/json"})
+    @POST("certificateexamname.php")
+    Call<List<SetResponse>> doExamNameApi(@Body SubjectRequest subjectRequest);
+
+    @Headers({"Accept: application/json"})
+    @POST("downloadresult.php")
+    Call<List<SetResponse>> doTrackResultApi(@Body SubjectRequest subjectRequest);
+
 }
 
 

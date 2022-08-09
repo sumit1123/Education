@@ -21,7 +21,7 @@ public class MyCourseActivity extends BaseActivity implements MyCourseInterface 
     String examid, examduration, examtype;
     LinearLayoutManager mLayoutManager;
     RecyclerView recyclerView;
-    String ForMyCourse ,fromcertificate;
+    String ForMyCourse, fromcertificate, track;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,13 +36,11 @@ public class MyCourseActivity extends BaseActivity implements MyCourseInterface 
             examtype = getIntent().getStringExtra("examtype");
             ForMyCourse = getIntent().getStringExtra("ForMyCourse");
             fromcertificate = getIntent().getStringExtra("fromcertificate");
+            track = getIntent().getStringExtra("track");
         }
-        if(ForMyCourse.equalsIgnoreCase("true"))
-        {
+        if (ForMyCourse.equalsIgnoreCase("true") || track.equalsIgnoreCase("true")) {
             activityMycourseBinding.tvTitle.setText("My Courses");
-        }
-        else
-        {
+        } else {
             activityMycourseBinding.tvTitle.setText("All Courses");
         }
         setSubjectRecylerView();
@@ -61,9 +59,7 @@ public class MyCourseActivity extends BaseActivity implements MyCourseInterface 
         } else {
             myCourseViewModel.courseApi(this);
         }
-
     }
-
 
     @Override
     public void dismissProgressbar() {
@@ -73,7 +69,7 @@ public class MyCourseActivity extends BaseActivity implements MyCourseInterface 
     @Override
     public void setData(List<CourseResponse> body, boolean b) {
         showLoading(false);
-        courseListAdapter.setData(body, b ,fromcertificate);
+        courseListAdapter.setData(body, b, fromcertificate , track);
     }
 
     @Override

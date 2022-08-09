@@ -8,6 +8,7 @@ public class PaymentRequest {
     public String course_id;
     public String exam_id;
     public String coupan_id;
+    public String course_end_date;
     public String total_amount;
     public String name;
     public String phone;

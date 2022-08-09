@@ -2,6 +2,7 @@ package com.example.education.buynow;
 
 import android.app.Activity;
 import android.util.Log;
+import android.widget.Toast;
 
 import androidx.lifecycle.ViewModel;
 
@@ -13,6 +14,7 @@ import com.example.education.repo.request.SubjectRequest;
 import com.example.education.response.ChapterResponse;
 import com.example.education.response.CommonResponse;
 import com.example.education.response.CoupanResponse;
+import com.example.education.response.CourseResponse;
 
 import java.util.List;
 
@@ -48,12 +50,14 @@ public class PaymentViewModel extends ViewModel {
         });
     }
 
-    public void purchaseApi(Activity context, String payment_id, String coupan_id , String total_amount , String course_id , String course_price , String course_gst , String course_duration, String course_name) {
+    public void purchaseApi(Activity context, String payment_id, String coupan_id , String total_amount , String course_id , String course_price , String course_gst , String course_duration, String course_name,
+                            String end_date) {
         PaymentRequest paymentRequest = new PaymentRequest();
         paymentRequest.payment_id = payment_id;
         paymentRequest.coupan_id = coupan_id;
         paymentRequest.total_amount = total_amount;
         paymentRequest.course_id  =course_id;
+        paymentRequest.course_end_date =end_date;
         paymentRequest.course_price  =course_price;
         paymentRequest.course_gst  =course_gst;
         paymentRequest.course_duration  =course_duration;
@@ -73,6 +77,23 @@ public class PaymentViewModel extends ViewModel {
             @Override
             public void onFailure(Call<CommonResponse> call, Throwable t) {
                 Log.e("respnse", t.getLocalizedMessage()+"");
+            }
+        });
+    }
+
+    public void courseApi(Activity context) {
+        Call<List<CourseResponse>> call = RetrofitClient.getInstance().getMyApi().doCourseApi();
+        call.enqueue(new Callback<List<CourseResponse>>() {
+            @Override
+            public void onResponse(Call<List<CourseResponse>> call, Response<List<CourseResponse>> response) {
+                paymentInterface.dismissProgressbar();
+                paymentInterface.setData(response.body());
+
+            }
+            @Override
+            public void onFailure(Call<List<CourseResponse>> call, Throwable t) {
+                paymentInterface.dismissProgressbar();
+                Toast.makeText(context, t.getLocalizedMessage() + "", Toast.LENGTH_SHORT).show();
             }
         });
     }

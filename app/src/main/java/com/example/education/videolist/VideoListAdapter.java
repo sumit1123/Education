@@ -43,13 +43,14 @@ public class VideoListAdapter extends RecyclerView.Adapter<VideoListAdapter.View
     public static class ViewHolder extends RecyclerView.ViewHolder {
 
         TextView tv_title;
-        ImageView img_preview;
+        ImageView img_preview ,img_lock;
         MaterialCardView card_root;
 
         public ViewHolder(View itemView) {
             super(itemView);
             tv_title = itemView.findViewById(R.id.tv_title);
             img_preview = itemView.findViewById(R.id.img_preview);
+            img_lock = itemView.findViewById(R.id.img_lock);
             card_root = itemView.findViewById(R.id.card_root);
         }
     }
@@ -72,6 +73,13 @@ public class VideoListAdapter extends RecyclerView.Adapter<VideoListAdapter.View
     public void onBindViewHolder(final ViewHolder holder, int position) {
         holder.tv_title.setText(videoResponses.get(position).videoTitle);
         Picasso.get().load(Constant.IMAGE_URL+videoResponses.get(position).preview_image).into(holder.img_preview);
+        if(videoResponses.get(holder.getAdapterPosition()).use_for_demo.equalsIgnoreCase("1")){
+            holder.img_lock.setVisibility(View.GONE);
+        }
+        else
+        {
+            holder.img_lock.setVisibility(View.VISIBLE);
+        }
         holder.card_root.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -80,7 +88,8 @@ public class VideoListAdapter extends RecyclerView.Adapter<VideoListAdapter.View
                 {
                     vimeoPlayerView.setVisibility(View.VISIBLE);
                     btVimeoFullsceen.setVisibility(View.VISIBLE);
-                    vimeoPlayerView.initialize(true, Integer.parseInt(videoResponses.get(holder.getAdapterPosition()).videoId));
+                    vimeoPlayerView.initialize(true, Integer.parseInt(videoResponses.get(holder.getAdapterPosition()).videoId) ,
+                            videoResponses.get(holder.getAdapterPosition()).hash_key ,videoResponses.get(holder.getAdapterPosition()).video_url);
                     vimeoPlayerView.setMenuVisibility(true);
                     vimeoPlayerView.setFullscreenVisibility(true);
                 }

@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
+import android.telephony.TelephonyManager;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
@@ -41,10 +42,11 @@ public class RegisterViewModel extends ViewModel {
         this.loginInterface = loginInterface;
     }
 
-    public void registerApi(Activity context, String mobile_number, String name, String password, String course_id) {
+    public void registerApi(Activity context, String mobile_number, String name, String password, String course_id ,String device_id) {
         RegisterRequest registerRequest = new RegisterRequest();
         registerRequest.mobile = mobile_number;
         registerRequest.name = name;
+        registerRequest.PhoneId = device_id;
         registerRequest.password = password;
         registerRequest.sub_course_id = course_id;
         registerRequest.categoryid = "1";

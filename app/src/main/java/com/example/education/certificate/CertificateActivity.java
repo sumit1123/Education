@@ -51,6 +51,17 @@ public class CertificateActivity extends BaseActivity implements CertificateInte
                 startActivity(intent);
             }
         });
+
+        activityCertificateBinding.btTrack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(CertificateActivity.this , MyCourseActivity.class);
+                intent.putExtra("ForMyCourse", "true");
+                intent.putExtra("fromcertificate", "false");
+                intent.putExtra("track", "true");
+                startActivity(intent);
+            }
+        });
     }
 
     @Override

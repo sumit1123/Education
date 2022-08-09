@@ -12,6 +12,7 @@ public class LoginResponse {
     public String sub_course_id;
     public String email_id;
     public String password;
+    public String phone_id;
     public String sponser_id;
     public String user_type;
     public String date_time;

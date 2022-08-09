@@ -5,7 +5,10 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.READ_PRIVILEGED_PHONE_STATE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
 
     <queries>
 
@@ -35,17 +38,18 @@
         android:theme="@style/Theme.Education"
         android:usesCleartextTraffic="true"
         tools:replace="android:allowBackup">
-
+        <activity
+            android:name=".chat.ChatAcitivity"
+            android:exported="false" />
         <activity
             android:name=".SplashActivity"
             android:exported="true">
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".home.DashBoardActivity"
             android:exported="true"
@@ -53,9 +57,7 @@
         <activity
             android:name=".login.LoginActivity"
             android:exported="true"
-            android:theme="@style/fullscreen">
-
-        </activity>
+            android:theme="@style/fullscreen"></activity>
         <activity
             android:name=".register.RegisterActivity"
             android:exported="true"
@@ -126,11 +128,13 @@
             android:exported="true"
             android:theme="@style/fullscreen"
             tools:node="merge" />
+        <activity android:name=".certificate.CertificateActivity" />
+        <activity android:name=".certificate.FinalExamFormActivity" />
+        <activity android:name=".profile.ProfileActivity" />
+        <activity android:name=".inbox.InvoiceActivity" />
+        <activity android:name=".examnames.ExamNameListActivity" />
+        <activity android:name=".examnames.TrackResultListActivity" />
 
-        <activity android:name=".certificate.CertificateActivity"/>
-        <activity android:name=".certificate.FinalExamFormActivity"/>
-        <activity android:name=".profile.ProfileActivity"/>
-        <activity android:name=".inbox.InvoiceActivity"/>
 
         <receiver
             android:name="com.razorpay.RzpTokenReceiver"
@@ -140,6 +144,7 @@
             </intent-filter>
         </receiver>
 
+        <activity android:name=".support.SupportActivity" />
         <activity
             android:name="com.razorpay.CheckoutActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize"

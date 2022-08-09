@@ -15,13 +15,17 @@
         <entry key="app/src/main/res/drawable/ic_baseline_all_inclusive_24.xml" value="0.16" />
         <entry key="app/src/main/res/drawable/ic_baseline_arrow_back_ios_24.xml" value="0.148046875" />
         <entry key="app/src/main/res/drawable/ic_baseline_check_box_outline_blank_24.xml" value="0.151" />
+        <entry key="app/src/main/res/drawable/ic_baseline_event_note_24.xml" value="0.143" />
         <entry key="app/src/main/res/drawable/ic_baseline_fullscreen_24.xml" value="0.148046875" />
+        <entry key="app/src/main/res/drawable/ic_baseline_lock_24.xml" value="0.14" />
         <entry key="app/src/main/res/drawable/ic_baseline_star_outline_24.xml" value="0.1415" />
+        <entry key="app/src/main/res/drawable/ic_call_black_24dp.xml" value="0.125" />
+        <entry key="app/src/main/res/drawable/ic_icons8_whatsapp.xml" value="0.125" />
         <entry key="app/src/main/res/drawable/ic_play_circle_filled_black_24dp.xml" value="0.16145833333333334" />
         <entry key="app/src/main/res/drawable/ic_right_arrow.xml" value="0.125" />
         <entry key="app/src/main/res/drawable/ic_school_bell.xml" value="0.12734375" />
         <entry key="app/src/main/res/drawable/ic_up_arrow.xml" value="0.152" />
-        <entry key="app/src/main/res/drawable/item_background.xml" value="0.19739583333333333" />
+        <entry key="app/src/main/res/drawable/item_background.xml" value="0.18" />
         <entry key="app/src/main/res/drawable/item_background_button.xml" value="0.19739583333333333" />
         <entry key="app/src/main/res/drawable/pallet_shape.xml" value="0.130859375" />
         <entry key="app/src/main/res/drawable/set_background.xml" value="0.149" />
@@ -31,11 +35,15 @@
         <entry key="app/src/main/res/drawable/set_background_rectangle.xml" value="0.149" />
         <entry key="app/src/main/res/drawable/set_background_rectangle_blue.xml" value="0.152" />
         <entry key="app/src/main/res/drawable/set_background_rectangle_gray.xml" value="0.17" />
+        <entry key="app/src/main/res/drawable/set_background_rectangle_green.xml" value="0.1255" />
+        <entry key="app/src/main/res/drawable/set_background_rectangle_red.xml" value="0.123" />
         <entry key="app/src/main/res/layout/activity_base.xml" value="0.13802083333333334" />
         <entry key="app/src/main/res/layout/activity_certificate.xml" value="0.10390625" />
         <entry key="app/src/main/res/layout/activity_chapter.xml" value="0.11015625" />
+        <entry key="app/src/main/res/layout/activity_chat_acitivity.xml" value="0.1046875" />
         <entry key="app/src/main/res/layout/activity_dash_board.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_demo.xml" value="0.11" />
+        <entry key="app/src/main/res/layout/activity_exam_name.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_exam_result.xml" value="0.13" />
         <entry key="app/src/main/res/layout/activity_final_exam.xml" value="0.15" />
         <entry key="app/src/main/res/layout/activity_invoice.xml" value="0.1" />
@@ -47,24 +55,28 @@
         <entry key="app/src/main/res/layout/activity_notes.xml" value="0.118359375" />
         <entry key="app/src/main/res/layout/activity_notes_detail.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_otp.xml" value="0.18125" />
-        <entry key="app/src/main/res/layout/activity_payment.xml" value="0.18" />
+        <entry key="app/src/main/res/layout/activity_payment.xml" value="0.14" />
         <entry key="app/src/main/res/layout/activity_profie.xml" value="0.1" />
-        <entry key="app/src/main/res/layout/activity_profile.xml" value="0.15" />
+        <entry key="app/src/main/res/layout/activity_profile.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_register.xml" value="0.15" />
         <entry key="app/src/main/res/layout/activity_set.xml" value="0.12265625" />
         <entry key="app/src/main/res/layout/activity_splash.xml" value="0.114453125" />
         <entry key="app/src/main/res/layout/activity_subject.xml" value="0.15" />
+        <entry key="app/src/main/res/layout/activity_support.xml" value="0.2" />
+        <entry key="app/src/main/res/layout/activity_track_result.xml" value="0.11796875" />
         <entry key="app/src/main/res/layout/activity_videolist.xml" value="0.15" />
         <entry key="app/src/main/res/layout/adapter_chapter.xml" value="0.1015625" />
+        <entry key="app/src/main/res/layout/adapter_exam_name.xml" value="0.16" />
         <entry key="app/src/main/res/layout/adapter_examresult.xml" value="0.1015625" />
         <entry key="app/src/main/res/layout/adapter_invoice.xml" value="0.1" />
         <entry key="app/src/main/res/layout/adapter_mcq.xml" value="0.1" />
         <entry key="app/src/main/res/layout/adapter_pallet.xml" value="0.1" />
         <entry key="app/src/main/res/layout/adapter_point.xml" value="0.22" />
-        <entry key="app/src/main/res/layout/adapter_set.xml" value="0.106640625" />
+        <entry key="app/src/main/res/layout/adapter_set.xml" value="0.17" />
         <entry key="app/src/main/res/layout/adapter_set_exam.xml" value="0.2" />
         <entry key="app/src/main/res/layout/adapter_subject.xml" value="0.16" />
-        <entry key="app/src/main/res/layout/adapter_video.xml" value="0.2" />
+        <entry key="app/src/main/res/layout/adapter_track_result.xml" value="0.18" />
+        <entry key="app/src/main/res/layout/adapter_video.xml" value="0.1" />
         <entry key="app/src/main/res/layout/app_bar_main.xml" value="0.12" />
         <entry key="app/src/main/res/layout/banner_adapter.xml" value="0.123046875" />
         <entry key="app/src/main/res/layout/bujy_corner_item.xml" value="0.1359375" />
@@ -75,7 +87,7 @@
         <entry key="app/src/main/res/layout/course_adapter.xml" value="0.1" />
         <entry key="app/src/main/res/layout/course_dialog.xml" value="0.14" />
         <entry key="app/src/main/res/layout/course_list.xml" value="0.16" />
-        <entry key="app/src/main/res/layout/layout_coupan.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/layout_coupan.xml" value="0.18" />
         <entry key="app/src/main/res/layout/loading_layout.xml" value="0.18125" />
         <entry key="app/src/main/res/layout/mcq_header_main.xml" value="0.1" />
         <entry key="app/src/main/res/layout/mycourse_adapter.xml" value="0.106640625" />

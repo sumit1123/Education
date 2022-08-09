@@ -30,4 +30,10 @@ public class SetResponse {
     public String topic_name;
     public String topic_image;
 
+    public String correct_ans;
+    public String incorrect_ans;
+    public String skip_que;
+    public String result;
+    public String supportFile;
+
 }
