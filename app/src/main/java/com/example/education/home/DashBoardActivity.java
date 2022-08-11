@@ -127,10 +127,10 @@ public class DashBoardActivity extends AppCompatActivity implements NavigationVi
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch (item.getItemId()) {
                     case R.id.navigation_home:
-                        EducationApplication.editor.putString("examtype", "2").apply();
-                        EducationApplication.editor.putString("type", "video").apply();
-                        Intent i = new Intent(DashBoardActivity.this , SubjectActivity.class);
-                        startActivity(i);
+//                        EducationApplication.editor.putString("examtype", "2").apply();
+//                        EducationApplication.editor.putString("type", "video").apply();
+//                        Intent i = new Intent(DashBoardActivity.this , DashBoardActivity.class);
+//                        startActivity(i);
                         return true;
                     case R.id.navigation_certificate:
                         Intent exam = new Intent(DashBoardActivity.this , CertificateActivity.class);

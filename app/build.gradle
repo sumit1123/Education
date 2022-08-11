@@ -56,7 +56,7 @@ dependencies {
     implementation 'com.github.bumptech.glide:glide:4.6.0'
     implementation 'com.github.smarteist:autoimageslider:1.4.0'
     implementation 'com.github.krtkush:LinearTimer:v2.1.1'
-    implementation 'com.razorpay:checkout:1.6.22'
+    implementation 'com.razorpay:checkout:1.6.17'
     implementation "com.razorpay:razorpay-java:1.4.2"
     implementation 'com.daasuu:animateHorizontalProgressBar:0.2.4'
     implementation 'com.github.barteksc:android-pdf-viewer:2.8.2'

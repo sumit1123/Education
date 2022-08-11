@@ -68,7 +68,7 @@ public class ExamResultActivity extends BaseActivity implements MCQInterface {
         for (int i = 0; i < examArrayList.size(); i++) {
             if (examArrayList.get(i).getSelect_answer().equalsIgnoreCase("0")) {
                 skipped = skipped + 1;
-            } else if (examArrayList.get(i).getCorrect_answer().equalsIgnoreCase(examArrayList.get(i).getSelect_answer())) {
+            } else if (examArrayList.get(i).getCorrect_answer_val().equalsIgnoreCase(examArrayList.get(i).getSelect_answer())) {
                 correct_answer = correct_answer + 1;
             } else {
                 wrong_answer = wrong_answer + 1;
