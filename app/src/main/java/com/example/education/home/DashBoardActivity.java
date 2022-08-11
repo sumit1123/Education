@@ -1,21 +1,29 @@
 package com.example.education.home;
 
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.LinearSmoothScroller;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.Manifest;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.DisplayMetrics;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
@@ -40,8 +48,11 @@ import com.example.education.response.CourseResponse;
 import com.example.education.response.SubjectResponse;
 import com.example.education.subjects.SubjectActivity;
 import com.example.education.support.SupportActivity;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.messaging.FirebaseMessaging;
 import com.smarteist.autoimageslider.IndicatorView.animation.type.IndicatorAnimationType;
 import com.smarteist.autoimageslider.SliderView;
 
@@ -73,6 +84,8 @@ public class DashBoardActivity extends AppCompatActivity implements NavigationVi
         setSupportActionBar(activityDashBoardBinding.toolbar);
         setListeners();
         bottomNavigation();
+
+
     }
 
     private void setPointsRecyclerView() {
@@ -317,6 +330,8 @@ public class DashBoardActivity extends AppCompatActivity implements NavigationVi
     @Override
     protected void onResume() {
         super.onResume();
+        getFirebaseToken();
+        setTopicToFirebase();
         EducationApplication.editor.putString("ForMyCourse", "false").apply();
         EducationApplication.editor.putString("courseid", EducationApplication.sharedPreferences.getString("sub_course_id", "")).apply();
         bannerApi(this);
@@ -426,4 +441,28 @@ public class DashBoardActivity extends AppCompatActivity implements NavigationVi
         handler.postDelayed(runnable,speedScroll);
     }
 
+    private void getFirebaseToken() {
+        FirebaseMessaging.getInstance().getToken()
+                .addOnCompleteListener(new OnCompleteListener<String>() {
+                    @Override
+                    public void onComplete(@NonNull Task<String> task) {
+                        if (!task.isSuccessful()) {
+                            return;
+                        }
+                        // Get new FCM registration token
+                        String token = task.getResult();
+                        Log.d("token", token);
+                    }
+                });
+    }
+
+    private void setTopicToFirebase() {
+        FirebaseMessaging.getInstance().subscribeToTopic("public")
+                .addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+
+                    }
+                });
+    }
 }

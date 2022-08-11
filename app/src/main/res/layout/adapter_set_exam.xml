@@ -12,7 +12,7 @@
         android:layout_height="100dp"
         android:padding="10dp"
         android:layout_margin="10dp"
-        android:background="@drawable/set_background_rectangle_blue"
+        android:background="@drawable/set_background_rectangle_yellow"
         android:layout_marginTop="10dp"
         android:orientation="horizontal">
 
@@ -44,7 +44,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="2dp"
                     android:text=""
-                    android:textColor="@color/white" />
+                    android:textColor="@color/yellow" />
 
             </LinearLayout>
 
@@ -77,9 +77,11 @@
         android:src="@drawable/quant">
 
         <ImageView
+            android:id="@+id/img"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            app:tint="@color/black"
             android:src="@drawable/ic_baseline_event_note_24"
             />
     </FrameLayout>

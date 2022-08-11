@@ -60,7 +60,8 @@ public class PaymentActivity extends BaseActivity implements PaymentInterface, P
     ActivityPaymentBinding activityPaymentBinding;
     PaymentViewModel paymentViewModel;
     CourseResponse courseResponse;
-    int total_price ,position;
+    float total_price;
+    int position;
     List<CoupanResponse> coupnaresponse;
     PointListAdapter pointListAdapter;
     String coupan_id = "";
@@ -217,7 +218,7 @@ public class PaymentActivity extends BaseActivity implements PaymentInterface, P
                         try {
                             int position  = (Integer) v.getTag();
                             coupan_id = response.get(position).coupon_id;
-                            total_price = (int)(total_price - Float.parseFloat(response.get(position).couponPrice));
+                            total_price = (total_price - Float.parseFloat(response.get(position).couponPrice));
                             activityPaymentBinding.tvTotalPrice.setText(total_price + " Rs");
                             bt_apply.setText("Applied");
                             bt_apply.setEnabled(false);
@@ -259,7 +260,7 @@ public class PaymentActivity extends BaseActivity implements PaymentInterface, P
         activityPaymentBinding.tvGst.setText("" + courseResponse.gst + "%");
         activityPaymentBinding.tvCourseTime.setText(courseResponse.course_duration + " Min");
         // activityPaymentBinding.tvCoupan.setText("");
-        total_price = (int)(Float.parseFloat(courseResponse.course_price) + Float.parseFloat(courseResponse.course_price) * Float.parseFloat(courseResponse.gst) / 100);
+        total_price = (Float.parseFloat(courseResponse.course_price) + (Float.parseFloat(courseResponse.course_price) * Float.parseFloat(courseResponse.gst) / 100));
         activityPaymentBinding.tvTotalPrice.setText(total_price + "");
         Calendar calendar = Calendar.getInstance(TimeZone.getDefault());
         int year = calendar.get(Calendar.YEAR);
